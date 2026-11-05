@@ -1,0 +1,280 @@
+:root {
+    --beige: #e1d4c9;
+    --lightBrown: #9f8774d7;
+    --mediumBrown: #665f55;
+    --darkBrown: #403f3d;
+    --darkText: rgb(23, 23, 22);
+    --lightText: rgb(238, 235, 229);
+    --mainPadding: 5px;
+}
+
+body {
+    margin: 2px;
+    color: var(--darkText);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 0.2fr;
+    gap: 0.2rem;
+
+    grid-template-areas:
+
+        "header"
+        "main"
+        "papers"
+        "footer"
+
+    ;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--darkBrown);
+    border-radius: 5px;
+    color: var(--lightText);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+
+    grid-template-areas:
+
+        "left right"
+
+    ;
+}
+
+header #left {
+    grid-area: left;
+    text-align: start;
+    align-content: center;
+    padding-left: 7px;
+    padding-right: 15px;
+    padding-top: 5px;
+}
+
+header #right {
+    grid-area: right;
+    text-align: end;
+    padding-right: 15px;
+    font-size: 2vw;
+}
+
+header img {
+    width: 10%;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--lightText);
+    padding: 10px;
+    padding-right: 20px;
+}
+
+header #hamburger {
+    display: none;
+}
+
+main {
+    grid-area: main;
+    background-color: var(--lightBrown);
+    border-radius: 5px;
+    padding: var(--mainPadding);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+
+    grid-template-areas:
+
+        "img h1"
+
+    ;
+}
+
+main img {
+    grid-area: img;
+    width: 60%;
+    border-radius: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+
+main h1 {
+    grid-area: h1;
+    margin: auto;
+    padding-top: 15px;
+    font-size: 9vw;
+    text-align: center;
+
+}
+
+main h2 {
+    text-align: center;
+    font-size: 3vw;
+    font-style: italic;
+}
+
+#papers {
+    grid-area: papers;
+    background-color: var(--beige);
+    border-radius: 5px;
+}
+
+#papers h1 {
+    display: block;
+    text-align: center;
+}
+
+#papers .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+
+    grid-template-areas:
+
+        "img1 img2 img3"
+
+    ;
+
+}
+
+#papers img {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#papers #img1 {
+    grid-area: img1;
+}
+
+#papers #img2 {
+    grid-area: img2;
+}
+
+#papers #img3 {
+    grid-area: img3;
+}
+
+.eachPaper {
+    padding: var(--mainPadding);
+    margin: 5px;
+    border: double var(--lightBrown) 5px;
+    border-radius: 10px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--mediumBrown);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--lightText);
+    font-size: 2vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+
+    grid-template-areas:
+
+        "history NP wiki"
+
+    ;
+}
+
+footer img {
+    width: 10%;
+    padding-right: var(--mainPadding);
+}
+
+footer .history {
+    grid-area: history;
+    text-align: center;
+}
+
+footer .nobelPrize {
+    grid-area: NP;
+    text-align: center;
+}
+
+footer .wiki {
+    grid-area: wiki;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--lightText);
+    justify-content: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* implement hamburger menu */
+    /* change paper photos to be each photo on top of each other */
+    menu {
+        display: none;
+    }
+
+    header img{
+        width: 15%;
+    }
+
+    header #hamburger {
+        display: inline;
+    }
+
+    header #hamIcon {
+        display: flex;
+        justify-content: end;
+    }
+
+    header #hiddenmenu {
+        display: none;
+        position: absolute;
+        background-color: var(--beige);
+        padding: var(--main-padding);
+        border-radius: 15px;
+        right: 7%;
+        top: 5%;
+        border: solid var(--mediumBrown);
+    }
+
+    header #hiddenmenu a {
+        text-decoration: none;
+        color: var(--darkText);
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: solid var(--blue);
+    }
+
+    #papers .images{
+        display: block;
+    }
+
+    #papers img {
+        display: block;
+        width: 40%;
+    }
+
+    footer span{
+        display: none;
+    }
+
+    footer img {
+        width: 15%;
+    }
+}
