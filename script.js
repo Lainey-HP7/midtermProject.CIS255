@@ -6,16 +6,19 @@ async function getPapers() {
         const papers_div = document.getElementById("papers");
 
         for (let paper of data.books) {
-            console.log(paper);
-            const eachPaper_div = document.createElement("div");
+            //Only papers that were PUBLISHED by Einstein (Published === false --> don't include)
+            if (paper.published === true) {
+                console.log(paper);
+                const eachPaper_div = document.createElement("div");
 
-            eachPaper_div.innerHTML = `
+                eachPaper_div.innerHTML = `
             <h2> Title: ${paper.title} </h2>
             <h3> Year: ${paper.year} </h3>
             <h4> Published: ${paper.published} </h4>`;
 
-            eachPaper_div.classList.add('eachPaper');
-            papers_div.append(eachPaper_div);
+                eachPaper_div.classList.add('eachPaper');
+                papers_div.append(eachPaper_div);
+            }
         }
     }
     catch (error) {
@@ -24,7 +27,6 @@ async function getPapers() {
 
 }
 getPapers();
-console.log("this is fetch api example");
 
 const hamburger = document.getElementById("hamburger");
 const hiddenmenu = document.getElementById("hiddenmenu");
