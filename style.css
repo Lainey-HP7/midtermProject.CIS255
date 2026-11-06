@@ -11,23 +11,26 @@
 body {
     margin: 2px;
     color: var(--darkText);
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--lightText);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container {
     display: grid;
     height: 100vh;
 
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr 1fr 0.2fr;
+    grid-template-columns: 0.4fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 0.2fr;
     gap: 0.2rem;
 
     grid-template-areas:
 
-        "header"
-        "main"
-        "papers"
-        "footer"
+        "header header"
+        "main main"
+        "imageCollection papers"
+        "imageCollection books"
+        "imageCollection hobbies"
+        "footer footer"
 
     ;
 }
@@ -39,7 +42,7 @@ header {
     color: var(--lightText);
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.3fr 1fr;
     grid-template-rows: 1fr;
     gap: 0.5rem;
 
@@ -67,7 +70,7 @@ header #right {
 }
 
 header img {
-    width: 10%;
+    width: 20%;
 }
 
 header a {
@@ -123,6 +126,51 @@ main h2 {
     font-style: italic;
 }
 
+aside {
+    grid-area: imageCollection;
+    background-color: var(--mediumBrown);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    border-radius: 5px;
+    place-items: center;
+
+    gap: 0.01rem;
+
+    grid-template-areas:
+        "asideHeader"
+        "aImg1"
+        "aImg2"
+        "aImg3"
+    ;
+}
+
+aside h1 {
+    grid-area: asideHeader;
+    color: var(--lightText);
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+aside img {
+    width: 80%;
+    border-radius: 5px;
+    border: double 6px var(--darkBrown);
+}
+
+aside #asideImg1 {
+    grid-area: aImg1;
+}
+
+aside #asideImg2 {
+    grid-area: aImg2;
+}
+
+aside #asideImg3 {
+    grid-area: aImg3;
+}
+
 #papers {
     grid-area: papers;
     background-color: var(--beige);
@@ -132,50 +180,152 @@ main h2 {
 #papers h1 {
     display: block;
     text-align: center;
-}
-
-#papers .images {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0.5rem;
-
-    grid-template-areas:
-
-        "img1 img2 img3"
-
-    ;
-
-}
-
-#papers img {
-    width: 80%;
-    margin: auto;
-    margin-bottom: 10px;
-}
-
-#papers #img1 {
-    grid-area: img1;
-}
-
-#papers #img2 {
-    grid-area: img2;
-}
-
-#papers #img3 {
-    grid-area: img3;
+    font-size: 4.5vw;
 }
 
 .eachPaper {
     padding: var(--mainPadding);
-    margin: 5px;
+    margin: 10px;
     border: double var(--lightBrown) 5px;
     border-radius: 10px;
+    padding-left: 15px;
+}
+
+#books {
+    grid-area: books;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    border-radius: 5px;
+    background-color: var(--lightBrown);
+    place-items: center;
+
+    gap: 0.01rem;
+
+    grid-template-areas:
+        "h1 h1 h1"
+        "img1 img2 img3"
+
+    ;
+}
+
+#books #img1 {
+    grid-area: img1;
+}
+
+#books #img2 {
+    grid-area: img2;
+}
+
+#books #img3 {
+    grid-area: img3;
+}
+
+#books img {
+    display: inline;
+    width: 90%;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#books h1 {
+    grid-area: h1;
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+#hobbies {
+    grid-area: hobbies;
+    background-color: var(--beige);
+    border-radius: 5px;
+}
+
+#hobbies h1 {
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+#hobbies #hobby1 {
+    border: 5px double var(--lightBrown);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr;
+
+    place-items: center;
+
+    gap: 0.01rem;
+
+    grid-template-areas:
+        "hob1Img hob1Info"
+
+    ;
+}
+
+#hobbies img {
+    width: 90%;
+    border-radius: 5%;
+}
+
+#hobbies #hobby1 img {
+    grid-area: hob1Img;
+}
+
+#hobbies #hobby1Info {
+    grid-area: hob1Info;
+    justify-self: center;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#hobbies h2 {
+    font-size: 3.5vw;
+}
+
+#hobbies p {
+    font-size: 2.3vw;
+}
+
+#hobbies #hobby2 {
+    border-radius: 5px;
+    border: 5px double var(--lightBrown);
+    margin: 10px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-rows: 1fr;
+
+    place-items: center;
+
+    gap: 0.01rem;
+
+    grid-template-areas:
+        "hob2Info hob2Img"
+
+    ;
+}
+
+#hobbies #hobby2 img {
+    grid-area: hob2Img;
+}
+
+#hobbies #hobby2Info {
+    grid-area: hob2Info;
+    justify-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 
 footer {
     grid-area: footer;
-    background-color: var(--mediumBrown);
+    background-color: var(--darkBrown);
     border-radius: 5px;
     padding: 10px;
     color: var(--lightText);
@@ -222,14 +372,36 @@ footer a {
 
 @media only screen and (max-width: 600px) {
 
-    /* implement hamburger menu */
-    /* change paper photos to be each photo on top of each other */
+    .container {
+        display: grid;
+        height: 100vh;
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 0.2fr;
+        gap: 0.2rem;
+
+        grid-template-areas:
+
+            "header"
+            "main"
+            "papers"
+            "books"
+            "hobbies"
+            "footer"
+
+        ;
+    }
+
+    aside {
+        display: none;
+    }
+
     menu {
         display: none;
     }
 
-    header img{
-        width: 15%;
+    header img {
+        width: 35%;
     }
 
     header #hamburger {
@@ -258,10 +430,15 @@ footer a {
         display: block;
         padding-top: 20px;
         padding-bottom: 20px;
-        border-bottom: solid var(--blue);
+        border-bottom: solid var(--mediumBrown);
+        border-radius: 5px;
     }
 
-    #papers .images{
+    header #hiddenmenu a:last-child {
+        border-bottom: none;
+    }
+
+    #papers .images {
         display: block;
     }
 
@@ -270,7 +447,11 @@ footer a {
         width: 40%;
     }
 
-    footer span{
+    #hobbies p {
+        font-size: 17px;
+    }
+
+    footer span {
         display: none;
     }
 
